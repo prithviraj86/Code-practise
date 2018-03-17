@@ -32,3 +32,11 @@ Output:-
 {"vraiant_id":"46638865456","quantity":"8","created_at":"2018-03-09 18:39:25","updated_at":"2018-03-09 18:39:25"},
 {"vraiant_id":"89789789789","quantity":"0","created_at":"2018-03-09 18:39:25","updated_at":"2018-03-09 18:39:25"}
 ]
+
+Limitations :-
+GROUP_CONCAT have 1024 characters limits so we will increse the limit also using these queries
+	For Session:-
+		SET SESSION group_concat_max_len = 1000000;
+	For Global:-
+		SET GLOBAL group_concat_max_len = 1000000;
+
