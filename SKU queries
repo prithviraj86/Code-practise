@@ -40,3 +40,13 @@ GROUP_CONCAT have 1024 characters limits so we will increse the limit also using
 	For Global:-
 		SET GLOBAL group_concat_max_len = 1000000;
 
+Other method:-
+This method only work in MYSQL 5.7
+
+CONCATE(
+'[',
+GROUP_CONCAT(
+	JSON_OBJECT('vraiant_id', variantid ,'quantity',quantity,'created_at',created_at,'updated_at', updated_at)
+	),
+']'
+)
