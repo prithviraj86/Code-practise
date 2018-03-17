@@ -6,7 +6,7 @@ SELECT v1.sku,count(v1.variantid),v2.valid_json
           select sku,
 		  CONCAT(
        		 '[',
-       			 COALESCE(	
+       			
           			GROUP_CONCAT(
              			 CONCAT
             				('{', 
@@ -17,7 +17,7 @@ SELECT v1.sku,count(v1.variantid),v2.valid_json
              				'}'
             				),
           			''),
-                ''),
+               
         	 ']')
                      AS valid_json
           from variants as v GROUP BY sku
