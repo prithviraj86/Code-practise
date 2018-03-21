@@ -1,31 +1,24 @@
 # Code-practise
 Query:-
 
-SELECT v1.sku,count(v1.variantid),v2.valid_json
-      FROM  variants AS v1
-      JOIN (
-          select sku,
-		  CONCAT(
-       		 '[',
-       			
-          			GROUP_CONCAT(
-             			 CONCAT
-            				('{', 
-              					'"vraiant_id":'   , '"', variantid   , '"', ',' 
-                 				'"quantity":', '"', quantity, '"', ','
-              					'"created_at":', '"'  , created_at, '"', ','
-              					'"updated_at":', '"'  , updated_at,'"', 
-             				'}'
-            				),
-          			''),
-               
-        	 ']')
-                     AS valid_json
-          from variants as v GROUP BY sku
-      	) AS v2
-      ON v1.sku = v2.sku  
-      GROUP BY v1.sku
-      HAVING count(v1.variantid) > 1
+select sku,COUNT(*),CONCAT(
+                        '[',
+                          GROUP_CONCAT(
+                              CONCAT(
+                                '{',
+                                	'"vraiant_id":'   , '"', variant_id   , '"', ','
+                                   	 '"product_name":', '"', product_title, '"', ','
+                                   	 '"title":', '"', title, '"', ','
+                                   	 '"quantity":', '"', quantity, '"', ','
+                                   	 '"price":', '"', price, '"', ','
+                                   	'"exclude":', '"', exclude, '"', ','
+                                	'"created_at":', '"'  , created_at, '"', ','
+                                	'"updated_at":', '"'  , updated_at,'"',
+                               				'}'
+                              ),
+                          ''),
+                        ']'
+                        ) as valid_json from `variants` group by `sku` having COUNT(*) > 1
 Output:-
 	
 [
