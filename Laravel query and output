@@ -1,0 +1,69 @@
+New Laravel query:-
+
+select sku,COUNT(*),CONCAT(
+                    '[',
+                      GROUP_CONCAT(
+                          CONCAT(
+                            '{',
+                              '"vraiant_id":'   , '"', variant_id   , '"', ','
+                                '"product_name":', '"', product_title, '"', ','
+                                '"title":', '"', title, '"', ','
+                                '"quantity":', '"', quantity, '"', ','
+                                '"price":', '"', price, '"', ','
+                                '"exclude":', '"', exclude, '"', ','
+                              '"created_at":', '"'  , created_at, '"', ','
+                              '"updated_at":', '"'  , updated_at,'"',
+                                  '}'
+                          ),
+                      ''),
+                    ']'
+                    ) as valid_json from `variants` group by `sku` having COUNT(*) > 1
+
+Output:-
+
+[{
+	"vraiant_id": "57808439",
+	"product_name": "CVUCbdhw7iN4AVndoECVU9nEpDm6R57JDoPUEJi3nZll3l7OILgoPWe2U9iiIsk6BCqCreXw5r52TsD5bWtnwbsvNKcgCZfSy9xXqSdhranKdLlhJOtgk0lNyC62MZqHBp",
+	"title": "zBtweNUmVnarY3Bzo3Z5dQaidaHzpyac645JPWJEybjrkgx6Xowpa3nGTbZ72x6fVt8G41rsXSzOWiMz2vvaQPyOfVC7cFlBPcRZ",
+	"quantity": "15",
+	"price": "812",
+	"exclude": "0",
+	"created_at": "2018-03-20 08:51:12",
+	"updated_at": "2018-03-20 08:51:12"
+}, {
+	"vraiant_id": "46368762",
+	"product_name": "ofjjVwu2UGTqvNl7oXrijXxwKvU2M2JQJdK6dfEjlSkJc7LrXvOHyMTGOdRQhwxDuVKT0sYUd5pDejj5UyPQQi6oU7sp54U5Zmnhu08LUfRfv8Nhkd2WXsiiKBojXWBSCw",
+	"title": "sJL6y7JZdtD5D77m7T2vJy4bVe7xRhCp7VpWFuTaMvCxKPHfa6f8Vpyd5Cc4vkzchBZRrau4fY9csUy1zaI80j8UG6ZdQ5RmK0Tx",
+	"quantity": "15",
+	"price": "968",
+	"exclude": "0",
+	"created_at": "2018-03-20 08:51:12",
+	"updated_at": "2018-03-20 08:51:12"
+}, {
+	"vraiant_id": "42254547",
+	"product_name": "ZmbB92t61GWNw3OsCxS5Ter522ScBzbD5KVKXLmbzK1xjSHhtMCFQF9YmuffaCLuZ7tbGWSkwbV3pgJsKGZQM9ekrKmhp0ZVWEwNZggIubfIxcanfLt2N3lJfSM9uLQ7Nm",
+	"title": "XzSAtvK6Wfy2Vf4wRn0dnnoCWDfA0WJ5U9YbxGpgSsbDdrfDE1WGWtjAKcLsCTWOLCZKTeXFJTPLxSl23ozEBg6WutRBrEatBLWr",
+	"quantity": "15",
+	"price": "672",
+	"exclude": "0",
+	"created_at": "2018-03-20 08:51:12",
+	"updated_at": "2018-03-20 08:51:12"
+}, {
+	"vraiant_id": "77062173",
+	"product_name": "z9YlLTveM42hLSOjHa8XlzJvEid4PEvkmQnpmQepibjXM2b8NJeAoG5Qd8MN5wvZN1utcJRmPuzsUeYX7GkRWIALf75dulLxfitQVqu8me1rbXkfDVbice2yVMwjpzxjZn",
+	"title": "43EB7WPW4tKqBKXZ67mzVdPgwAH6S5yZrX6GaNHlfFuDXNE5roaHtZ4I5WL2VczLx0u5VUvbbYaqPl0roarwp2bEfpbfjXW2M0f5",
+	"quantity": "15",
+	"price": "1068",
+	"exclude": "0",
+	"created_at": "2018-03-20 08:51:12",
+	"updated_at": "2018-03-20 08:51:12"
+}, {
+	"vraiant_id": "54595563",
+	"product_name": "eIHjBSkdu0beRrfKCYQP2Xgl63TnwhN2m1e2yHSCesC3tdZkhvtBo20adauXCgD9a0An28pGxmOgQpGZZV5qBSZqdJkufdlmAsYoXXhEYofyWaE2QQFylI1WQftsxmdG3q",
+	"title": "T5JKk9hOvGDVtX8JCMEOcyImQATSyjvsnTBWHYq5Ha2zcQetbtiIrNPv2LTwn0xC9DsmBryfqIRwcwu20mukJ9zwJq8Z6DoaR8HT",
+	"quantity": "15",
+	"price": "1200",
+	"exclude": "0",
+	"created_at": "2018-03-20 08:51:12",
+	"updated_at": "2018-03-20 08:51:12"
+}]
