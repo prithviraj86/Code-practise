@@ -1,0 +1,36 @@
+Assignment for satpal
+ 
+1. Create/update/delete Department.Show list below the insert form.
+
+2. Create/update/delete Employee
+		Detail:-1. Name
+				2. Email
+				3. Department
+				4. Date of birth
+				5. joining date.
+				6. city
+				7. contact no.
+4. List of saved employees.		
+4. create table for tasks.
+5. create tasks and assign these task to selected employee.
+		1. Task heading
+		2. Task description
+		3. Employee
+		4. Deadline(Date)
+6. List all task.
+	1. List have search option by employee name,department wise.
+	2. Edit/Delete task option
+
+7. When user click on any task it will display in new page.
+		1. In the bottom of task create comment field and on submit save comment in Comment table.
+		2. saved comment display on this page between task detail and comment field. when new comment post.it will add below the previous 
+		comment. 
+		
+
+
+
+Note:-Please focus on quality code, we didn't see how you design, we only see the codes quality.Follow those instructions which are 
+given by pradeep sir in novel writing class.
+ 
+	
+			
