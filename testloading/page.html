@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script src="jquery.min.js"></script>
+		<script>
+		$( document ).ready(function() {
+			var datetime = new Date()
+			var T=datetime.getMilliseconds();
+						 
+			 $.ajax({
+				type: 'get',
+				url: "sidebar.html",
+				traditional: true,
+				async: true,
+				success: function (data) {
+				
+					$("#sidebar").html(data);
+				}
+			});
+
+			$.ajax({
+				type: 'get',
+				url: "main.html",
+				traditional: true,
+				async: true,
+				success: function (data) {
+					
+					$("#main").html(data);
+				}
+			});
+			var datetime1 = new Date()
+			var X=datetime1.getMilliseconds();
+			$("#timestamps").text(X-T);
+		});
+			
+		</script>
+	</head>
+	<body>
+		<div id="timestamps"></div>
+		
+		<div id="sidebar"></div>
+		<div id="main"></div>
+	</body>
+	
+</html>
